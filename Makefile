@@ -50,7 +50,7 @@ all		:
 		@echo "$(GREEN) -------------$(RED)I $(CYAN)AM $(GREEN)DONE $(YELLOW)MADAFAKA$(GREEN)-------------------------- $(DEF_COLOR)"
 
 $(NAME)	: ${OBJS}
-		@${CC} ${CFLAGS} -I ${INCLUDES} ${OBJS} -o ${NAME}
+		@${CC} ${CFLAGS} -I includes/Routine.h ${OBJS}  -o ${NAME}
 		@echo "$(GREEN)Creating ./robotic ...$(DEF_COLOR)"
 
 ${OBJS_DIR}%.o:	$(SRCS_DIR)%.c
