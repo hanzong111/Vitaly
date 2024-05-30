@@ -19,8 +19,14 @@ void Routine_1()
             turnLeft();
             printf("turn left\n"); /* Execute turn left */
             hasCheckedLeftTurn = true;
+            break;
         }
-        else if (detectRightTurn()) /* Check if the line goes to the right */
+    }
+
+
+    while (1)
+    {
+        if (detectRightTurn()) /* Check if the line goes to the right */
         {
             rightTurnCount++;
 
@@ -31,23 +37,34 @@ void Routine_1()
                 break;
             }
         }
+    } 
 
+
+    while (1)
+    {
         if (detectWall()) /* Check if the wall is detected */
-        {
-            placeOre(); /* Grab the ore */
-            slideBack(); /* Slide back */
-            break;
-        }
+            {
+                placeOre(); /* Grab the ore */
+                printf("placed Ore");
+                slideBack(); /* Slide back */
+                break;
+            }
+    }
 
+    while (1)
+    {
         if (detectLeftTurn()) /* Check if a left turn is detected after sliding back */
         {
             goStraightUntilLeftLine(); /* Go straight (follow the line) until a left turn is detected */
+            printf("go forward");
             break;
         }
     }
 
     turnLeft(); /* Execute a left turn */
+    printf("turn left");
     goStraightUntilBase(); /* Move forward until the base is reached */
+    printf("go to Base");
 }
 
 
@@ -64,17 +81,24 @@ void Routine_2()
         {
             hasDetectedRightTurn = true;
             slideRightUntilWall(); /* Slide to the right until a wall is reached */
-        }
-
-        if (detectWall()) /* Check if the wall is detected */
-        {
-            grabOre(); /* Grab the ore */
-            slideBack(); /* Slide back */
+            printf("up the wall");
             break;
         }
     }
 
+    while (1)
+    {
+         if (detectWall()) /* Check if the wall is detected */
+        {
+            grabOre(); /* Grab the ore */
+            printf("grab Ore");
+            slideBack(); /* Slide back */
+            break;
+        }
+    }
+    
     goStraightUntilBase(); /* Move forward until the base is reached */
+    printf("go to Base");
 }
 
 void	Routine_3()
